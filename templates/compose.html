@@ -1,0 +1,64 @@
+{% block title %}{% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compose Email</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body id="contact">
+    <div class="container">
+        <div class="wrapper">
+            <nav>
+                <input type="checkbox" id="show-menu" />
+                <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+                <div class="content">
+                    <div class="logo">
+                        <a href="/"><span>Bulk Mail Sender</span></a>
+                    </div>
+                    
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="main">
+            <section>
+                <div class="box">
+                    <div class="form">
+                        <h2>Send Email</h2>
+                            <form action="/sendmail" method="POST">
+                            <div class="inputBox">
+                            <textarea placeholder="Message" name="message" id="message" required></textarea>
+                            </div>
+                            <br>
+                            <div class="inputBox">
+                            <input type="submit" value="Send">
+                            </div>
+                            </form>
+                    </div>
+
+                    <div class="footer-basic">
+                      <footer>
+                          <ul class="list-inline">
+                              <li class="list-inline-item"><a href="/">Home</a></li>
+                              <li class="list-inline-item"><a href="https://www.linkedin.com/in/shaheer14hasan/">LinkedIn</a></li>
+                              <li class="list-inline-item"><a href="https://shaheer-rossoneri14.github.io/">Portfolio</a></li>
+                              <li class="list-inline-item"><a href="https://github.com/Shaheer-rossoneri14">GitHub</a></li>
+                          </ul>
+                          <p class="copyright">Developed By
+                              <a href="https://www.linkedin.com/in/shaheer14hasan/">Shaheer Hasan</a> © 2022</p>
+                      </footer>
+                  </div>
+                
+                </body>
+                </html>
+{% endblock %}
+
+
+        

@@ -1,0 +1,116 @@
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BulkMailSender</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body id="home">
+    <div class="container">
+        <div class="wrapper">
+            <nav>
+                <input type="checkbox" id="show-menu" />
+                <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+                <div class="content">
+                    <div class="logo">
+                        <a href="/"><span>Bulk Mail Sender</span></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="desc">
+                <h2>Send Bulk Emails at one go.</h2>
+            <h3>A project to upload a csv file containing data such as name, email, etc. Validation and purification can be done before sending mails at once to all the recipients mentioned in the csv file.</h3>
+            </div>
+            <div class="btn">
+                <a href="#">Upload CSV File</a>
+                <a href="#">Valid and Invalid Emails</a>
+                <a href="#">Send Emails</a>
+            </div>
+            <br>
+            <section>
+                    <div class="form">
+                        <h2>Please upload a CSV File</h2>
+                        <form action="/" method="POST" enctype="multipart/form-data">
+                            <div class="inputBox">
+                                <input type="file" id="myFile" name="filename" accept=".csv">
+                            </div>
+                            <div class="btn">
+                                <input type="submit" value="Upload">
+                            </div>
+                        </form>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data" action="/compose"></form>
+                    <div class="btn"><a href="/compose">Send Mail</a></div>
+            </section>
+            <center>
+            <table id = "Table2">
+                <th>Valid Email IDs in the given file:</th>
+                {% for row in row_data %}
+                <tr>
+                    {% for col, row_ in zip(column_names, row) %}
+                    <td>{{row_}}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+        </div>
+        
+        <div class="footer-basic">
+            <footer>
+                <ul class="list-inline">
+                    <li style="display:inline"><a href="/">Home</a></li>
+                    <li style="display:inline"><a href="https://www.linkedin.com/in/shaheer14hasan/">LinkedIn</a></li>
+                    <li style="display:inline"><a href="https://shaheer-rossoneri14.github.io/">Portfolio</a></li>
+                    <li style="display:inline"><a href="https://github.com/Shaheer-rossoneri14">GitHub</a></li>
+                </ul>
+                <p class="copyright">Developed By
+                    <a href="https://www.linkedin.com/in/shaheer14hasan/">Shaheer Hasan</a> © 2022</p>
+            </footer>
+        </div>
+</body>
+</html>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
